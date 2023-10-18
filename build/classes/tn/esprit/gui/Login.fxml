@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.LoginController">
+   <children>
+      <Label layoutX="259.0" layoutY="85.0" prefHeight="17.0" prefWidth="92.0" text="Username" />
+      <Label layoutX="259.0" layoutY="134.0" text="Password" />
+      <TextField fx:id="username" layoutX="339.0" layoutY="86.0" prefHeight="25.0" prefWidth="163.0" />
+      <TextField fx:id="password" layoutX="339.0" layoutY="132.0" prefHeight="25.0" prefWidth="163.0" />
+      <Button fx:id="btn_login" layoutX="330.0" layoutY="194.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="123.0" text="Login" wrapText="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Label layoutX="259.0" layoutY="286.0" text="Not a member?" />
+      <VBox layoutX="6.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Button fx:id="btn_sign_up" layoutX="353.0" layoutY="282.0" mnemonicParsing="false" onAction="#signup" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign Up!" textFill="#0a3ff5">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <BorderPane prefHeight="486.0" prefWidth="170.0" style="-fx-background-color: #964B00;">
+         <top>
+            <ImageView fitHeight="99.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../../../../../Downloads/received_258319863860798-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </top></BorderPane>
+      <Label layoutX="179.0" layoutY="14.0" prefHeight="39.0" prefWidth="273.0" text="Créer compte" textFill="#50704d">
+         <font>
+            <Font name="Century" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

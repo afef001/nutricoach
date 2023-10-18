@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="457.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.AjouterUserController">
+   <children>
+      <Label layoutX="206.0" layoutY="63.0" text="Nom" />
+      <Label layoutX="205.0" layoutY="135.0" text="Date de naissance" />
+      <Label layoutX="206.0" layoutY="97.0" text="Prénom" />
+      <Label layoutX="206.0" layoutY="169.0" text="Email" />
+      <Label layoutX="207.0" layoutY="207.0" text="Numéro du téléphone" />
+      <Label layoutX="207.0" layoutY="313.0" prefHeight="17.0" prefWidth="75.0" text="Role" />
+      <Label layoutX="206.0" layoutY="242.0" prefHeight="17.0" prefWidth="75.0" text="Username" />
+      <Label layoutX="206.0" layoutY="278.0" prefHeight="17.0" prefWidth="96.0" text="Password" />
+      <Label fx:id="label_diplome" layoutX="207.0" layoutY="349.0" prefHeight="17.0" prefWidth="69.0" text="Diplome" />
+      <Label fx:id="label_specialite" layoutX="208.0" layoutY="385.0" prefHeight="17.0" prefWidth="75.0" text="Specialité" />
+      <TextField fx:id="first_name" layoutX="386.0" layoutY="59.0" />
+      <TextField fx:id="last_name" layoutX="386.0" layoutY="95.0" />
+      <TextField fx:id="email" layoutX="386.0" layoutY="167.0" />
+      <TextField fx:id="phone_number" layoutX="386.0" layoutY="203.0" />
+      <TextField fx:id="username" layoutX="386.0" layoutY="238.0" />
+      <PasswordField fx:id="password" layoutX="386.0" layoutY="274.0" />
+      <TextField fx:id="specialite" layoutX="386.0" layoutY="381.0" />
+      <TextField fx:id="diplome" layoutX="386.0" layoutY="345.0" />
+      <ComboBox fx:id="role" layoutX="386.0" layoutY="309.0" onAction="#manupulatedSelection" prefWidth="150.0" />
+      <DatePicker fx:id="date_of_birth" layoutX="386.0" layoutY="131.0" prefHeight="25.0" prefWidth="163.0" />
+      <Button fx:id="btn_add_user" layoutX="490.0" layoutY="427.0" mnemonicParsing="false" onAction="#adduser" prefHeight="25.0" prefWidth="75.0" text="Ajouter" />
+      <Button fx:id="btn_exit" layoutX="278.0" layoutY="427.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="75.0" text="Annuler" />
+      <VBox layoutY="7.0" prefHeight="200.0" prefWidth="100.0" />
+      <BorderPane layoutY="3.0" prefHeight="200.0" prefWidth="141.0" />
+      <BorderPane layoutY="-4.0" prefHeight="466.0" prefWidth="141.0">
+         <top>
+            <VBox prefHeight="201.0" prefWidth="121.0" style="-fx-background-color: #964B00;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Downloads/received_258319863860798-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children></VBox>
+         </top>
+         <center>
+            <VBox prefHeight="265.0" prefWidth="117.0" style="-fx-background-color: #964B00;" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <Label layoutX="159.0" layoutY="6.0" text="Créer compte" textFill="#538b63">
+         <font>
+            <Font name="Century" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
