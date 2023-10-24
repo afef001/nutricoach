@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.DetailUserController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="143.0" style="-fx-background-color: #964B00;">
+         <children>
+            <ImageView fitHeight="97.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/received_258319863860798-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="navigateToProgramme" mnemonicParsing="false" onAction="#navigateToProgramme" text="Programmes" />
+         </children></VBox>
+      <Label layoutX="155.0" layoutY="62.0" text="Nom" />
+      <Label layoutX="155.0" layoutY="121.0" text="Date de naissance" />
+      <Label layoutX="154.0" layoutY="154.0" text="Email" />
+      <Label layoutX="156.0" layoutY="186.0" text="Numéro de téléphone" />
+      <Label layoutX="154.0" layoutY="218.0" text="Mot de passe" />
+      <Label fx:id="label_diplome" layoutX="157.0" layoutY="279.0" text="Diplome" />
+      <Label fx:id="label_specialite" layoutX="155.0" layoutY="312.0" text="Specialité" />
+      <Label layoutX="156.0" layoutY="250.0" text="Role" />
+      <Label layoutX="154.0" layoutY="92.0" text="Prénom" />
+      <TextField fx:id="txt_nom" layoutX="304.0" layoutY="56.0" />
+      <TextField fx:id="txt_prenom" layoutX="304.0" layoutY="87.0" />
+      <TextField fx:id="txt_email" layoutX="304.0" layoutY="150.0" />
+      <TextField fx:id="txt_num_tel" layoutX="304.0" layoutY="181.0" />
+      <TextField fx:id="txt_role" layoutX="304.0" layoutY="244.0" />
+      <TextField fx:id="txt_diplome" layoutX="304.0" layoutY="275.0" />
+      <TextField fx:id="txt_specialite" layoutX="304.0" layoutY="308.0" />
+      <DatePicker fx:id="txt_date_birth" layoutX="304.0" layoutY="117.0" />
+      <PasswordField fx:id="txt_password" layoutX="304.0" layoutY="213.0" />
+      <Button fx:id="btn_modifier_profil" layoutX="186.0" layoutY="355.0" mnemonicParsing="false" onAction="#modifierProfil" text="Modifier" />
+      <Button fx:id="btn_ajouter_programme" layoutX="296.0" layoutY="355.0" mnemonicParsing="false" onAction="#ajouterProgramme" text="Ajouter programme" />
+      <Button fx:id="btn_deconnecter" layoutX="456.0" layoutY="355.0" mnemonicParsing="false" onAction="#seDeconnecter" text="Se déconnecter" />
+      <Label fx:id="YASSINE" layoutX="463.0" layoutY="62.0" prefHeight="17.0" prefWidth="84.0" />
+      <Label layoutX="502.0" layoutY="35.0" />
+      <Label layoutX="502.0" layoutY="76.0" />
+      <Label fx:id="txt_id" layoutX="533.0" layoutY="226.0" text="Label" />
+      <Label fx:id="txt_username" layoutX="540.0" layoutY="266.0" text="Label" />
+      <Label layoutX="162.0" layoutY="2.0" text="Profil" textFill="#507465">
+         <font>
+            <Font name="Freestyle Script" size="39.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

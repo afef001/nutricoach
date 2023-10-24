@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,37 +13,52 @@
 
 <AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.LoginController">
    <children>
-      <Label layoutX="259.0" layoutY="85.0" prefHeight="17.0" prefWidth="92.0" text="Username" />
-      <Label layoutX="259.0" layoutY="134.0" text="Password" />
+      <Label fx:id="label_username" layoutX="259.0" layoutY="85.0" prefHeight="17.0" prefWidth="92.0" text="Identifiant" />
+      <Label fx:id="label_password" layoutX="259.0" layoutY="134.0" text="Mot de passe" />
       <TextField fx:id="username" layoutX="339.0" layoutY="86.0" prefHeight="25.0" prefWidth="163.0" />
-      <TextField fx:id="password" layoutX="339.0" layoutY="132.0" prefHeight="25.0" prefWidth="163.0" />
-      <Button fx:id="btn_login" layoutX="330.0" layoutY="194.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="123.0" text="Login" wrapText="true">
+      <Button fx:id="btn_login" layoutX="359.0" layoutY="194.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="123.0" text="Se connecter" textFill="#060ef8" wrapText="true">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Label layoutX="259.0" layoutY="286.0" text="Not a member?" />
+      <Label layoutX="244.0" layoutY="365.0" text="Pas encore membre?" />
       <VBox layoutX="6.0" prefHeight="200.0" prefWidth="100.0">
          <children>
             <BorderPane prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
-      <Button fx:id="btn_sign_up" layoutX="353.0" layoutY="282.0" mnemonicParsing="false" onAction="#signup" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign Up!" textFill="#0a3ff5">
+      <Button fx:id="btn_sign_up" layoutX="381.0" layoutY="358.0" mnemonicParsing="false" onAction="#signup" style="-fx-background-color: transparent; -fx-cursor: hand;" text="S'inscrire" textFill="#0a3ff5">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="13.0" />
          </font>
       </Button>
       <BorderPane prefHeight="486.0" prefWidth="170.0" style="-fx-background-color: #964B00;">
          <top>
             <ImageView fitHeight="99.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../../../../../../Downloads/received_258319863860798-removebg-preview.png" />
+                  <Image url="@../../../image/received_258319863860798-removebg-preview.png" />
                </image>
             </ImageView>
          </top></BorderPane>
-      <Label layoutX="179.0" layoutY="14.0" prefHeight="39.0" prefWidth="273.0" text="Créer compte" textFill="#50704d">
+      <Label layoutX="185.0" layoutY="6.0" prefHeight="39.0" prefWidth="273.0" text="Connecxion" textFill="#50704d">
          <font>
-            <Font name="Century" size="31.0" />
+            <Font name="Freestyle Script" size="49.0" />
          </font>
       </Label>
+      <PasswordField fx:id="password" layoutX="339.0" layoutY="130.0" prefHeight="25.0" prefWidth="163.0" />
+      <Button fx:id="btn_motdepass_oublier" layoutX="353.0" layoutY="238.0" mnemonicParsing="false" onAction="#resetPassword" style="-fx-background-color: tansparent; -fx-cursor: hand;" text="ou Mot de pass oublié" textFill="#072efa">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_reset_passwd" layoutX="364.0" layoutY="313.0" mnemonicParsing="false" onAction="#renitialiserPassword" prefHeight="25.0" prefWidth="111.0" text="Rénitialiser" textFill="#0e06f4">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TextField fx:id="txt_username_forgot" layoutX="247.0" layoutY="275.0" />
+      <TextField fx:id="txt_email_forgot" layoutX="439.0" layoutY="275.0" />
+      <Button fx:id="btn_go_connect" layoutX="500.0" layoutY="357.0" mnemonicParsing="false" onAction="#goConnect" text="Se connecter" textFill="#2505f8">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

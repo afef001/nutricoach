@@ -29,14 +29,14 @@
          <children>
             <ImageView fx:id="image" fitHeight="108.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/received_258319863860798-removebg-preview.png" />
+                  <Image url="@../../../image/received_258319863860798-removebg-preview.png" />
                </image>
             </ImageView>
          </children>
       </VBox>
-      <Label layoutX="130.0" layoutY="5.0" text="Listes des utilisateurs" textFill="#538850">
+      <Label layoutX="131.0" text="Listes des utilisateurs" textFill="#538850">
          <font>
-            <Font name="Century" size="31.0" />
+            <Font name="Freestyle Script" size="49.0" />
          </font>
       </Label>
       <Button layoutX="547.0" layoutY="418.0" mnemonicParsing="false" onAction="#actualiser" text="Actualiser" />
@@ -46,6 +46,5 @@
       <TextField fx:id="edit_prenom" layoutX="131.0" layoutY="207.0" prefHeight="25.0" prefWidth="136.0" promptText="Prénom" />
       <TextField fx:id="edit_email" layoutX="131.0" layoutY="269.0" prefHeight="25.0" prefWidth="136.0" promptText="Email" />
       <TextField fx:id="edit_role" layoutX="131.0" layoutY="337.0" prefHeight="25.0" prefWidth="136.0" promptText="Role" />
-      <Button fx:id="addprograme" layoutX="185.0" layoutY="418.0" mnemonicParsing="false" onAction="#addprograme" prefHeight="31.0" prefWidth="91.0" text="Ajouter Programme" />
    </children>
 </AnchorPane>

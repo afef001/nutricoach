@@ -6,6 +6,9 @@
 package nutricoach.entity;
 
 import java.sql.Date;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.image.Image;
+
 
 
 /**
@@ -18,6 +21,17 @@ public class Programme {
     private String programDescription; 
     private Date programStartDate;
     private Date programEndDate;
+    private String qrcode_program;
+    private SimpleObjectProperty<Image> image;
+
+    public SimpleObjectProperty<Image> getImage() {
+        return image;
+    }
+
+    public void setImage(SimpleObjectProperty<Image> image) {
+        this.image = image;
+    }
+
     private User U;
 //many to one:user user
 
@@ -41,6 +55,14 @@ public class Programme {
         this.programEndDate = programEndDate;
         this.U = user;
  
+    }
+
+    public String getQrcode_program() {
+        return qrcode_program;
+    }
+
+    public void setQrcode_program(String qrcode_program) {
+        this.qrcode_program = qrcode_program;
     }
 public User getU() {
         return U;

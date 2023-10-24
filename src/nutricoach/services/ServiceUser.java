@@ -15,6 +15,7 @@ import java.util.List;
 import nutricoach.entity.Role;
 import nutricoach.entity.User;
 import nutricoach.util.DataSource;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -32,22 +33,26 @@ public class ServiceUser implements IServices<User> {
     @Override
     public void ajouter(User t) {
 
-        String req = "INSERT INTO users( first_name, last_name, date_of_birth, email, phone_number, username, password, diplome, specialite, role) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String req = "INSERT INTO users( first_name, last_name, date_of_birth, email, phone_number, username, password, diplome, specialite, role, verification_code, enabled) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try {
+        try {  
             PreparedStatement pre = cnx.prepareStatement(req);//execution des req sql Parametre
+            String hashedPassword = BCrypt.hashpw(t.getPassword(), BCrypt.gensalt());
             pre.setString(1, t.getFirstName());
             pre.setString(2, t.getLastName());
             pre.setDate(3, t.getDateOfBirth());
             pre.setString(4, t.getEmail());
             pre.setInt(5, t.getPhoneNumber());
             pre.setString(6, t.getUsername());
-            pre.setString(7, t.getPassword());
+            pre.setString(7, hashedPassword);
             pre.setString(8, t.getDiplome());
             pre.setString(9, t.getSpecialite());
             pre.setString(10, t.getRole().toString());
+            pre.setString(11, t.getVerificationCode());
+            pre.setBoolean(12, t.isEnabled());
             pre.executeUpdate();
+         
 
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -191,25 +196,92 @@ public class ServiceUser implements IServices<User> {
         return users;
         
 }
-    public boolean getLogin(String login, String password){
-             String req = "SELECT * FROM users WHERE username='" +login +"' and password ='"+password+"'";
-
-  
+    public User findUserByUsername(String login){//return les detail de l'utilusateur connecter :controle des roles
+           String req = "SELECT * FROM users WHERE username='" +login +"' and enabled=1";
+             User user = new User();
+            
         try {
             PreparedStatement pre = cnx.prepareStatement(req);
+            
+            
 
             //pre.setInt(1, userId);
             ResultSet rs = pre.executeQuery(req);
             if(rs.next()){
-                return true;
+            user.setUserId(rs.getInt("user_id"));
+            user.setFirstName(rs.getString("first_name"));
+            user.setLastName(rs.getString("last_name"));
+            user.setDateOfBirth(rs.getDate("date_of_birth"));
+            user.setEmail(rs.getString("email"));
+            user.setPhoneNumber(rs.getInt("phone_number"));
+            user.setUsername(rs.getString("username"));
+            user.setPassword(rs.getString("password"));
+            user.setDiplome(rs.getString("diplome"));
+            user.setRole(Role.valueOf(rs.getString("role")));
+            user.setEnabled(rs.getBoolean("enabled"));
 
             }
         } catch (SQLException ex) {
 
             System.out.println(ex.getMessage());
-            
+       }
+        return user;
+}
+    public boolean authenticateUser(String username, String password) throws SQLException {
+        User user = findUserByUsername(username);
+        return user != null && user.checkPassword(password );
+        
+    }
+    
+     public boolean isCompteVerified(String verificationCode){//comparaison de verification code entre base et mail
+             String req = "SELECT * FROM users WHERE verification_code='" +verificationCode +"'";
+        try {
+            PreparedStatement pre = cnx.prepareStatement(req);
 
+            ResultSet rs = pre.executeQuery(req);
+            if(rs.next()){
+                return true;
+            }
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
         }
         return false;
 }
+     
+     
+    public void modifierStatusCompte(User t , String verificationCode) {//pour rendre le compte enabled /diabled apres introduire le code de vérification
+        String sql = "UPDATE users SET enabled=? WHERE verification_code =?";
+        try {
+            PreparedStatement pre = cnx.prepareStatement(sql);
+            pre.setBoolean(1, t.isEnabled());
+            pre.setString(2, verificationCode);
+            
+            pre.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+      }
+    public void resetPassword(String loginUser, String password) {
+        String sql = "UPDATE users SET password =? WHERE username =?";
+        try {
+            PreparedStatement pre = cnx.prepareStatement(sql);
+            String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(12));
+            pre.setString(1, hashedPassword);
+            pre.setString(2, loginUser);
+            
+            pre.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+        
+       }
+    
 }
+
+
+

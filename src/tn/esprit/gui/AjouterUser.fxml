@@ -45,7 +45,7 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../Downloads/received_258319863860798-removebg-preview.png" />
+                        <Image url="@../../../image/received_258319863860798-removebg-preview.png" />
                      </image>
                   </ImageView>
                </children></VBox>
@@ -54,9 +54,9 @@
             <VBox prefHeight="265.0" prefWidth="117.0" style="-fx-background-color: #964B00;" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
-      <Label layoutX="159.0" layoutY="6.0" text="Créer compte" textFill="#538b63">
+      <Label layoutX="159.0" layoutY="-3.0" text="Créer compte" textFill="#538b63">
          <font>
-            <Font name="Century" size="31.0" />
+            <Font name="Freestyle Script" size="49.0" />
          </font>
       </Label>
    </children>

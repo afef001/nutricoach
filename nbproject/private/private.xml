@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/nutricoach/entity/Role.java</file>
+            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/nutricoach/util/DataSource.java</file>
+            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/nutricoach/services/ServiceUser.java</file>
+            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/nutricoach/entity/Programme.java</file>
+            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/nutricoach/entity/SessionManager.java</file>
+            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/nutricoach/services/ServiceProgramme.java</file>
+            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/tn/esprit/gui/AjouterProgrammeController.java</file>
             <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/tn/esprit/gui/NewFXMain.java</file>
-            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/tn/esprit/gui/AjouterUser.fxml</file>
-            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/tn/esprit/gui/AjouterUserController.java</file>
-            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/nutricoach/NutricoachJDBC.java</file>
-            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/tn/esprit/gui/AjouterPersonneController.java</file>
+            <file>file:/C:/Users/Utilisateur/Documents/NetBeansProjects/Nutricoach/src/tn/esprit/gui/LoginController.java</file>
         </group>
     </open-files>
 </project-private>

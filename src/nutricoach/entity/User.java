@@ -9,6 +9,7 @@ package nutricoach.entity;
 import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -26,7 +27,8 @@ private String password;
 private String diplome;
 private String specialite;
 private Role role;
-
+private String verificationCode;
+private boolean enabled;
 
     public User(int userId, String firstName, String lastName, Date dateOfBirth, String email, int phoneNumber, String username, String password, String diplome, String specialite, Role role) {
         this.userId = userId;
@@ -123,6 +125,12 @@ private Role role;
         this.password = password;
     }
 
+  
+    public boolean checkPassword(String inputPassword) {
+        return BCrypt.checkpw(inputPassword.trim(), getPassword());
+    }
+
+
     public String getDiplome() {
         return diplome;
     }
@@ -146,6 +154,23 @@ private Role role;
     public void setRole(Role role) {
         this.role = role;
     }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+    
 
     @Override
     public String toString() {

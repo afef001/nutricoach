@@ -12,5 +12,6 @@ package nutricoach.entity;
 public enum Role {
     ADHERON, 
     COACH,
-    NUTRITIONNISTE,   
+    NUTRITIONNISTE, 
+    ADMIN,
 }

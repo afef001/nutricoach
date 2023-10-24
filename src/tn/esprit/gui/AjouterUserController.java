@@ -9,7 +9,10 @@ import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +27,8 @@ import javafx.scene.control.TextField;
 import nutricoach.entity.Role;
 import nutricoach.entity.User;
 import nutricoach.services.ServiceUser;
+import nutricoach.util.MailService;
+import org.apache.commons.lang.RandomStringUtils;
 
 /**
  * FXML Controller class
@@ -61,12 +66,17 @@ public class AjouterUserController implements Initializable {
     private Label label_diplome;
     @FXML
     private Label label_specialite;
+    
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@(.+)$";
+    private static final String PHONE_REGEX = "\\d{8}";
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        addSaisiControl();
+       btn_add_user.disableProperty().bind(validationBinding());
         
         ObservableList<String> list = FXCollections.observableArrayList("ADHERON", "COACH", "NUTRITIONNISTE");
          role.setItems(list);
@@ -80,6 +90,7 @@ public class AjouterUserController implements Initializable {
 
     @FXML
     private void adduser(ActionEvent event) {
+        
         String firstName = first_name.getText();
         String lastName = last_name.getText();
         String Email = email.getText();
@@ -95,11 +106,15 @@ public class AjouterUserController implements Initializable {
         String selectedRole = role.getSelectionModel().getSelectedItem().toString();
         Role role = Role.valueOf(selectedRole.toUpperCase());
      
-       
+        String generatedString = RandomStringUtils.random(5, true, true);
         ServiceUser ps = new ServiceUser();
         User p = new User(firstName, lastName, birthDate, Email, phoneNumber, Username, Password, Diplome, Specialite, role);
+        
+        p.setVerificationCode(generatedString);
+        p.setEnabled(false);
         ps.ajouter(p);
-        SceneBuilderUtil.changeScene(event, "ListUser.fxml", "liste des utilisateurs");
+        MailService.sendActivationEmail(p.getEmail(), generatedString);
+        SceneBuilderUtil.changeScene(event, "VerificationCompte.fxml", "validation", null, 600 ,400);
     }
 
     @FXML
@@ -128,5 +143,34 @@ public class AjouterUserController implements Initializable {
         }
         
     }
+   
+ 
+        
+ 
+    private void addSaisiControl() {
+        email.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!Pattern.matches(EMAIL_REGEX, newValue)) {
+                email.setStyle("-fx-border-color: red;");
+            } else {
+                email.setStyle("");
+            }
+        });
+
+        phone_number.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!Pattern.matches(PHONE_REGEX, newValue)) {
+                phone_number.setStyle("-fx-border-color: red;");
+            }else{
+               phone_number.setStyle("");
+            }
+        });
+    }
     
+   private BooleanBinding validationBinding() {
+        return Bindings.createBooleanBinding(
+                () -> !Pattern.matches(EMAIL_REGEX, email.getText()) || !Pattern.matches(PHONE_REGEX, phone_number.getText()),
+                email.textProperty(),
+                phone_number.textProperty()
+        );
+    }     
 }
+    

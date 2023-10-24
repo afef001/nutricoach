@@ -80,8 +80,6 @@ public class ListUserController implements Initializable {
    private ObservableList<User> userListData = FXCollections.observableArrayList();
     @FXML
     private Button searchuser;
-    @FXML
-    private Button addprograme;
    
    
      
@@ -159,10 +157,6 @@ public class ListUserController implements Initializable {
         return selectedUser;
     }
 
-    @FXML
-    private void addprograme(ActionEvent event) {
-         SceneBuilderUtil.changeScene(event, "AjouterProgramme.fxml", "Ajout programme");
-    }
 
 
 }
